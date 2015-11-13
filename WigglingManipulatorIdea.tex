@@ -1,0 +1,31 @@
+\documentclass[]{scrartcl}
+\usepackage{amsmath, amsthm}
+\usepackage{amssymb}
+
+
+
+\begin{document}
+
+Model the hyper redundant linkage (snake on a base) as links:\\
+$J_i$: \begin{tabular}{ll}
+$A_i(\theta_i)$ & Transform to next link\\
+$|\tau_i| < \tau_{max}$ & Torque limit\\
+$m_i$ & mass
+\end{tabular}
+
+Call the end of the last joint the End Effector. (note: I am thinking of the tail as the first link; the opposite of the other snakes but standard for arms)
+
+Anchor the first link to the origin. 
+
+There is a horizontal plane at height 0 on which the snake can rest (and cannot penetrate). The plane has coefficient of friction $\mu$\\
+
+Problem 1: Given a point $p_1 = (x_1, y_1, z_1>0)$ or (point and orientation) determine a $\vec{\theta}$ such that the End Effector is at $p_1$ (with optional orientation) subject to each $|\tau_i| < \tau$. \\
+The interesting points are where the plane must be used in order to to reach $p_1$ without violating the constraints.\\
+\\
+
+Problem 2: Given an initial configuration $\vec{\theta} = \vec{\phi_1}$ and goal configuration $\vec{\theta} = \vec{\phi_2}$ determine a path to move from $\vec{\phi_1}$ to $\vec{\phi_2}$ without violating the torque constraints.\\
+
+The interesting points are where a direct move would violate torque constraints, and the ground provides too much friction to simply slide. In this problem I envision using a sideways snake gait for the links near the end effector with a high torque on the links near the base to push the end effector close to the target. One close enough the head links can reach the goal point with a direct move.
+
+
+\end{document}
